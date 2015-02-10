@@ -135,41 +135,6 @@
                            "rate" : 2
                            }
                            ]
-                },
-                {
-                "name" : "The Radisson--Wallraff",
-                "location" : "Ellensburg, WA",
-                "stars" : 7,
-                "rooms" : [
-                          {
-                          "number" : 141,
-                          "beds" : 2,
-                          "rate" : 1
-                          },
-                          {
-                          "number" : 142,
-                          "beds" : 2,
-                          "rate" : 1
-                          },
-                          {
-                          "number" : 143,
-                          "beds" : 2,
-                          "rate" : 1
-                          },
-                          
-                          {
-                          "number" : 144,
-                          "beds" : 2,
-                          "rate" : 1
-                          },
-                          
-                          {
-                          "number" : 145,
-                          "beds" : 2,
-                          "rate" : 2
-                          }
-                          ]
                 }
-
     ]
 }

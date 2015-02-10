@@ -22,6 +22,8 @@
 		EC08AF261A89557D006DE716 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08AF251A89557D006DE716 /* Room.m */; };
 		EC08AF281A8955D7006DE716 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = EC08AF271A8955D7006DE716 /* seed.json */; };
 		EC08AF311A89606A006DE716 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08AF301A89606A006DE716 /* MenuTableViewController.m */; };
+		EC08AF341A8AAB9A006DE716 /* AvailabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08AF331A8AAB9A006DE716 /* AvailabilityViewController.m */; };
+		EC08AF371A8AABF1006DE716 /* AddReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08AF361A8AABF1006DE716 /* AddReservationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		EC08AF271A8955D7006DE716 /* seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seed.json; sourceTree = "<group>"; };
 		EC08AF2F1A89606A006DE716 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuTableViewController.h; path = ../MenuTableViewController.h; sourceTree = "<group>"; };
 		EC08AF301A89606A006DE716 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuTableViewController.m; path = ../MenuTableViewController.m; sourceTree = "<group>"; };
+		EC08AF321A8AAB9A006DE716 /* AvailabilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailabilityViewController.h; sourceTree = "<group>"; };
+		EC08AF331A8AAB9A006DE716 /* AvailabilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailabilityViewController.m; sourceTree = "<group>"; };
+		EC08AF351A8AABF1006DE716 /* AddReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReservationViewController.h; sourceTree = "<group>"; };
+		EC08AF361A8AABF1006DE716 /* AddReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReservationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,10 @@
 				EC08AEF81A894E61006DE716 /* HotelListViewController.m */,
 				EC08AEFA1A894E87006DE716 /* RoomListViewController.h */,
 				EC08AEFB1A894E87006DE716 /* RoomListViewController.m */,
+				EC08AF351A8AABF1006DE716 /* AddReservationViewController.h */,
+				EC08AF361A8AABF1006DE716 /* AddReservationViewController.m */,
+				EC08AF321A8AAB9A006DE716 /* AvailabilityViewController.h */,
+				EC08AF331A8AAB9A006DE716 /* AvailabilityViewController.m */,
 				EC08AF241A89557D006DE716 /* Room.h */,
 				EC08AF251A89557D006DE716 /* Room.m */,
 				EC08AF211A89557D006DE716 /* Hotel.h */,
@@ -263,7 +273,9 @@
 				EC08AF311A89606A006DE716 /* MenuTableViewController.m in Sources */,
 				EC08AF201A89557D006DE716 /* Guest.m in Sources */,
 				EC08AEFC1A894E87006DE716 /* RoomListViewController.m in Sources */,
+				EC08AF371A8AABF1006DE716 /* AddReservationViewController.m in Sources */,
 				EC08AED71A894A98006DE716 /* The_Core_Hotel.xcdatamodeld in Sources */,
+				EC08AF341A8AAB9A006DE716 /* AvailabilityViewController.m in Sources */,
 				EC08AED41A894A98006DE716 /* AppDelegate.m in Sources */,
 				EC08AED11A894A98006DE716 /* main.m in Sources */,
 			);
