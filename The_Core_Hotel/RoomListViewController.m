@@ -8,6 +8,7 @@
 
 #import "RoomListViewController.h"
 #import "AddReservationViewController.h"
+#import "ReservationListViewController.h"
 #import "Room.h"
 
 @interface RoomListViewController () <UITableViewDataSource>
@@ -49,10 +50,10 @@
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier  isEqualToString:@"SHOW_RESERVATION"]) {
-    AddReservationViewController *reservationVC = [segue destinationViewController];
+  if ([segue.identifier  isEqualToString:@"SHOW_RESERVATIONS"]) {
+    ReservationListViewController *reservationListVC = [segue destinationViewController];
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    reservationVC.selectedRoom = [self.rooms objectAtIndex:indexPath.row];
+    reservationListVC.selectedRoom = [self.rooms objectAtIndex:indexPath.row];
   }
 }
 

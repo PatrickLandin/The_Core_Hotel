@@ -63,12 +63,7 @@
   NSDate *endDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
   
   Reservation *reservation = [self.hotelService bookReservationForGuest:self.guest forRoom:self.room startDate:startDate endDate:endDate];
-  XCTAssertNil(reservation, @"If date is valid, reservation should not be nil");
+  XCTAssertNotNil(reservation, @"If date is valid, reservation should not be nil");
 }
-
--(void)testBookReservationWithStartDateAfterEndDate {
-  
-}
-
 
 @end

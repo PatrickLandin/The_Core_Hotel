@@ -27,6 +27,7 @@
 		EC08AF6E1A8BF532006DE716 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08AF6D1A8BF532006DE716 /* CoreDataStack.m */; };
 		EC08AF711A8BF6DB006DE716 /* HotelService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08AF701A8BF6DB006DE716 /* HotelService.m */; };
 		EC08AF731A8BFC17006DE716 /* HotelServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08AF721A8BFC17006DE716 /* HotelServiceTest.m */; };
+		EC08AF761A8C0B18006DE716 /* ReservationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08AF751A8C0B18006DE716 /* ReservationListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		EC08AF6F1A8BF6DB006DE716 /* HotelService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelService.h; sourceTree = "<group>"; };
 		EC08AF701A8BF6DB006DE716 /* HotelService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelService.m; sourceTree = "<group>"; };
 		EC08AF721A8BFC17006DE716 /* HotelServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelServiceTest.m; sourceTree = "<group>"; };
+		EC08AF741A8C0B18006DE716 /* ReservationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationListViewController.h; sourceTree = "<group>"; };
+		EC08AF751A8C0B18006DE716 /* ReservationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				EC08AEF81A894E61006DE716 /* HotelListViewController.m */,
 				EC08AEFA1A894E87006DE716 /* RoomListViewController.h */,
 				EC08AEFB1A894E87006DE716 /* RoomListViewController.m */,
+				EC08AF741A8C0B18006DE716 /* ReservationListViewController.h */,
+				EC08AF751A8C0B18006DE716 /* ReservationListViewController.m */,
 				EC08AF351A8AABF1006DE716 /* AddReservationViewController.h */,
 				EC08AF361A8AABF1006DE716 /* AddReservationViewController.m */,
 				EC08AF321A8AAB9A006DE716 /* AvailabilityViewController.h */,
@@ -289,6 +294,7 @@
 				EC08AEFC1A894E87006DE716 /* RoomListViewController.m in Sources */,
 				EC08AF371A8AABF1006DE716 /* AddReservationViewController.m in Sources */,
 				EC08AED71A894A98006DE716 /* The_Core_Hotel.xcdatamodeld in Sources */,
+				EC08AF761A8C0B18006DE716 /* ReservationListViewController.m in Sources */,
 				EC08AF711A8BF6DB006DE716 /* HotelService.m in Sources */,
 				EC08AF341A8AAB9A006DE716 /* AvailabilityViewController.m in Sources */,
 				EC08AED41A894A98006DE716 /* AppDelegate.m in Sources */,
