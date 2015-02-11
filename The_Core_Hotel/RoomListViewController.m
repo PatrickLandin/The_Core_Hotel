@@ -7,6 +7,7 @@
 //
 
 #import "RoomListViewController.h"
+#import "AddReservationViewController.h"
 #import "Room.h"
 
 @interface RoomListViewController () <UITableViewDataSource>
@@ -44,6 +45,15 @@
   Room *room = self.rooms[indexPath.row];
   cell.textLabel.text = [NSString stringWithFormat:@"%@", room.number];
   return cell;
+}
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier  isEqualToString:@"SHOW_RESERVATION"]) {
+    AddReservationViewController *reservationVC = [segue destinationViewController];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    reservationVC.selectedRoom = [self.rooms objectAtIndex:indexPath.row];
+  }
 }
 
 @end

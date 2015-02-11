@@ -7,8 +7,12 @@
 //
 
 #import "AddReservationViewController.h"
+#import "Reservation.h"
+#import "Guest.h"
 
 @interface AddReservationViewController ()
+@property (weak, nonatomic) IBOutlet UIDatePicker *startDate;
+@property (weak, nonatomic) IBOutlet UIDatePicker *endDate;
 
 @end
 
@@ -23,15 +27,25 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)makeResPressed:(id)sender {
+  Reservation *reservation = [NSEntityDescription insertNewObjectForEntityForName:@"Reservation" inManagedObjectContext:self.selectedRoom.managedObjectContext];
+  
+  reservation.startDate = self.startDate.date;
+  reservation.endDate = self.endDate.date;
+  reservation.room = self.selectedRoom;
+  Guest *guest = [NSEntityDescription insertNewObjectForEntityForName:@"Guest" inManagedObjectContext:self.selectedRoom.managedObjectContext];
+  guest.firstName = @"Patrick";
+  guest.lastName = @"Landin";
+  reservation.guest = guest;
+  
+  NSLog(@"%lu",(unsigned long)self.selectedRoom.reservations.count);
+  
+  NSError *saveError;
+  [self.selectedRoom.managedObjectContext save:&saveError];
+  
+  if (saveError) {
+    NSLog(@" %@",saveError.localizedDescription);
+  }
 }
-*/
 
 @end

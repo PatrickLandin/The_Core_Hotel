@@ -47,7 +47,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Ms0-Hz-gNE" kind="show" identifier="SHOW_NUTHIN" id="JiA-wP-0St"/>
+                                            <segue destination="Ms0-Hz-gNE" kind="show" identifier="SHOW_AVAILABILITY" id="JiA-wP-0St"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -112,7 +112,7 @@
         <!--Hello-->
         <scene sceneID="3RD-FR-cQz">
             <objects>
-                <viewController title="Hello" id="Ms0-Hz-gNE" sceneMemberID="viewController">
+                <viewController title="Hello" id="Ms0-Hz-gNE" customClass="AvailabilityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jqT-la-L4z"/>
                         <viewControllerLayoutGuide type="bottom" id="8vk-ME-CaN"/>
@@ -121,8 +121,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jnv-rB-yic">
-                                <rect key="frame" x="101" y="86" width="399" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cZp-Ew-0Oc">
+                                <rect key="frame" x="101" y="84" width="399" height="29"/>
                                 <segments>
                                     <segment title="Fancy Estates"/>
                                     <segment title="Solid Stay"/>
@@ -130,43 +130,61 @@
                                     <segment title="Okay Motel"/>
                                 </segments>
                             </segmentedControl>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="E6A-sQ-d8S">
-                                <rect key="frame" x="140" y="134" width="320" height="162"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IQs-Zt-ELL">
+                                <rect key="frame" x="140" y="148" width="320" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="445294328.40663499">
                                     <!--2015-02-10 20:52:08 +0000-->
                                 </date>
                             </datePicker>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wfC-C5-8p8">
-                                <rect key="frame" x="140" y="314" width="320" height="162"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="OrL-DR-P9u">
+                                <rect key="frame" x="140" y="342" width="320" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="445294335.544599">
                                     <!--2015-02-10 20:52:15 +0000-->
                                 </date>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yU-y4-KXj">
-                                <rect key="frame" x="239" y="498" width="123" height="30"/>
-                                <state key="normal" title="Make Reservation">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atW-tY-PF4">
+                                <rect key="frame" x="240" y="512" width="121" height="30"/>
+                                <state key="normal" title="Check Availability">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkAvailabilityPressed:" destination="Ms0-Hz-gNE" eventType="touchUpInside" id="cSH-RS-APv"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAv-IT-8wG">
+                                <rect key="frame" x="268" y="124" width="65" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V9-9B-WCg">
+                                <rect key="frame" x="270" y="318" width="60" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="E6A-sQ-d8S" firstAttribute="top" secondItem="jnv-rB-yic" secondAttribute="bottom" constant="24" id="3ce-uh-0e2"/>
-                            <constraint firstItem="jnv-rB-yic" firstAttribute="top" secondItem="jqT-la-L4z" secondAttribute="bottom" constant="22" id="8ms-JC-W8o"/>
-                            <constraint firstAttribute="centerX" secondItem="E6A-sQ-d8S" secondAttribute="centerX" id="SXg-zA-4If"/>
-                            <constraint firstItem="E6A-sQ-d8S" firstAttribute="top" secondItem="jnv-rB-yic" secondAttribute="bottom" constant="20" id="W0r-iX-voZ"/>
-                            <constraint firstItem="5yU-y4-KXj" firstAttribute="top" secondItem="wfC-C5-8p8" secondAttribute="bottom" constant="22" id="bfU-HC-wDv"/>
-                            <constraint firstAttribute="centerX" secondItem="jnv-rB-yic" secondAttribute="centerX" id="iFK-de-JoV"/>
-                            <constraint firstItem="wfC-C5-8p8" firstAttribute="top" secondItem="E6A-sQ-d8S" secondAttribute="bottom" constant="18" id="v8A-Ia-o43"/>
-                            <constraint firstAttribute="centerX" secondItem="5yU-y4-KXj" secondAttribute="centerX" id="x7w-dK-64g"/>
-                            <constraint firstAttribute="centerX" secondItem="wfC-C5-8p8" secondAttribute="centerX" id="zvV-u5-gPd"/>
+                            <constraint firstItem="atW-tY-PF4" firstAttribute="top" secondItem="OrL-DR-P9u" secondAttribute="bottom" constant="8" id="6yW-Zd-1xR"/>
+                            <constraint firstAttribute="centerX" secondItem="atW-tY-PF4" secondAttribute="centerX" id="9SI-xj-BgT"/>
+                            <constraint firstItem="cZp-Ew-0Oc" firstAttribute="top" secondItem="jqT-la-L4z" secondAttribute="bottom" constant="20" id="IZ7-oJ-aV4"/>
+                            <constraint firstAttribute="centerX" secondItem="IQs-Zt-ELL" secondAttribute="centerX" id="Km8-NX-cs3"/>
+                            <constraint firstItem="IQs-Zt-ELL" firstAttribute="top" secondItem="uAv-IT-8wG" secondAttribute="bottom" constant="8" id="SGh-eP-au0"/>
+                            <constraint firstAttribute="centerX" secondItem="OrL-DR-P9u" secondAttribute="centerX" id="UPy-oE-yp8"/>
+                            <constraint firstAttribute="centerX" secondItem="uAv-IT-8wG" secondAttribute="centerX" id="Vli-Ql-pTi"/>
+                            <constraint firstItem="OrL-DR-P9u" firstAttribute="top" secondItem="7V9-9B-WCg" secondAttribute="bottom" constant="8" id="bhr-cS-D2c"/>
+                            <constraint firstItem="uAv-IT-8wG" firstAttribute="top" secondItem="cZp-Ew-0Oc" secondAttribute="bottom" constant="12" id="kPt-dd-YZ2"/>
+                            <constraint firstAttribute="centerX" secondItem="7V9-9B-WCg" secondAttribute="centerX" id="mq1-l8-yYc"/>
+                            <constraint firstAttribute="centerX" secondItem="cZp-Ew-0Oc" secondAttribute="centerX" id="tAk-6X-EAx"/>
+                            <constraint firstItem="7V9-9B-WCg" firstAttribute="top" secondItem="IQs-Zt-ELL" secondAttribute="bottom" constant="8" id="vDy-d6-CaG"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="3ce-uh-0e2"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="endDate" destination="OrL-DR-P9u" id="qP6-xp-Nzt"/>
+                        <outlet property="hotelSegmentControl" destination="cZp-Ew-0Oc" id="Wau-xx-Mm2"/>
+                        <outlet property="startDate" destination="IQs-Zt-ELL" id="T1f-SY-Kcg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ds1-gx-Bgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,10 +235,10 @@
             </objects>
             <point key="canvasLocation" x="3342" y="-93"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Reservation View Controller-->
         <scene sceneID="5eV-FM-4qT">
             <objects>
-                <viewController id="eUM-w3-WQH" sceneMemberID="viewController">
+                <viewController id="eUM-w3-WQH" customClass="AddReservationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w9b-ek-reu"/>
                         <viewControllerLayoutGuide type="bottom" id="LFR-Im-0sm"/>
@@ -229,24 +247,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="QXH-os-fP5">
-                                <rect key="frame" x="140" y="132" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="445294328.40663499">
-                                    <!--2015-02-10 20:52:08 +0000-->
-                                </date>
-                            </datePicker>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jWp-gj-IoE">
-                                <rect key="frame" x="140" y="312" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="445294335.544599">
-                                    <!--2015-02-10 20:52:15 +0000-->
-                                </date>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krJ-9n-b25">
-                                <rect key="frame" x="239" y="496" width="123" height="30"/>
-                                <state key="normal" title="Make Reservation">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="g7C-la-dOA">
                                 <rect key="frame" x="101" y="84" width="399" height="29"/>
                                 <segments>
@@ -256,19 +256,60 @@
                                     <segment title="Okay Motel"/>
                                 </segments>
                             </segmentedControl>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="QXH-os-fP5">
+                                <rect key="frame" x="140" y="148" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="445294328.40663499">
+                                    <!--2015-02-10 20:52:08 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jWp-gj-IoE">
+                                <rect key="frame" x="140" y="342" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="445294335.544599">
+                                    <!--2015-02-10 20:52:15 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krJ-9n-b25">
+                                <rect key="frame" x="239" y="512" width="123" height="30"/>
+                                <state key="normal" title="Make Reservation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="makeResPressed:" destination="eUM-w3-WQH" eventType="touchUpInside" id="6GY-gY-Xhu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdW-QM-nfp">
+                                <rect key="frame" x="270" y="318" width="60" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWp-Jj-59J">
+                                <rect key="frame" x="268" y="124" width="65" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jWp-gj-IoE" firstAttribute="top" secondItem="QXH-os-fP5" secondAttribute="bottom" constant="18" id="5WL-a5-XUO"/>
-                            <constraint firstItem="QXH-os-fP5" firstAttribute="top" secondItem="g7C-la-dOA" secondAttribute="bottom" constant="20" id="BOu-8t-fOF"/>
-                            <constraint firstItem="g7C-la-dOA" firstAttribute="top" secondItem="w9b-ek-reu" secondAttribute="bottom" constant="20" id="C5r-UE-S95"/>
-                            <constraint firstAttribute="centerX" secondItem="jWp-gj-IoE" secondAttribute="centerX" id="Hl8-E1-Qgu"/>
-                            <constraint firstAttribute="centerX" secondItem="krJ-9n-b25" secondAttribute="centerX" id="Y30-20-Qh6"/>
-                            <constraint firstAttribute="centerX" secondItem="g7C-la-dOA" secondAttribute="centerX" id="hxq-qz-aoq"/>
-                            <constraint firstItem="krJ-9n-b25" firstAttribute="top" secondItem="jWp-gj-IoE" secondAttribute="bottom" constant="22" id="rjq-jM-krA"/>
-                            <constraint firstAttribute="centerX" secondItem="QXH-os-fP5" secondAttribute="centerX" id="w5V-sm-WwL"/>
+                            <constraint firstItem="krJ-9n-b25" firstAttribute="top" secondItem="jWp-gj-IoE" secondAttribute="bottom" constant="8" id="08m-AU-rhn"/>
+                            <constraint firstAttribute="centerX" secondItem="QXH-os-fP5" secondAttribute="centerX" id="2rP-BM-ijq"/>
+                            <constraint firstItem="jWp-gj-IoE" firstAttribute="top" secondItem="IdW-QM-nfp" secondAttribute="bottom" constant="8" id="JlP-aE-6XD"/>
+                            <constraint firstItem="IdW-QM-nfp" firstAttribute="top" secondItem="QXH-os-fP5" secondAttribute="bottom" constant="8" id="XOS-9v-CUB"/>
+                            <constraint firstAttribute="centerX" secondItem="g7C-la-dOA" secondAttribute="centerX" id="Yl7-u2-5XC"/>
+                            <constraint firstItem="NWp-Jj-59J" firstAttribute="top" secondItem="g7C-la-dOA" secondAttribute="bottom" constant="12" id="Ywa-wn-QcA"/>
+                            <constraint firstItem="QXH-os-fP5" firstAttribute="top" secondItem="NWp-Jj-59J" secondAttribute="bottom" constant="8" id="ZVa-G9-gdp"/>
+                            <constraint firstAttribute="centerX" secondItem="IdW-QM-nfp" secondAttribute="centerX" id="dGb-tt-6dZ"/>
+                            <constraint firstItem="g7C-la-dOA" firstAttribute="top" secondItem="w9b-ek-reu" secondAttribute="bottom" constant="20" id="dS3-Au-sLO"/>
+                            <constraint firstAttribute="centerX" secondItem="NWp-Jj-59J" secondAttribute="centerX" id="ivL-0K-o3f"/>
+                            <constraint firstAttribute="centerX" secondItem="jWp-gj-IoE" secondAttribute="centerX" id="mNx-7O-Ebt"/>
+                            <constraint firstAttribute="centerX" secondItem="krJ-9n-b25" secondAttribute="centerX" id="ujG-3T-DZY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="endDate" destination="jWp-gj-IoE" id="5l2-vh-OHR"/>
+                        <outlet property="startDate" destination="QXH-os-fP5" id="3Hg-Hw-sn6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zaj-wd-UBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

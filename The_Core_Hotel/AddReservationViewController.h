@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Room.h"
 
 @interface AddReservationViewController : UIViewController
+
+@property (strong,nonatomic) Room *selectedRoom;
 
 @end
