@@ -47,42 +47,48 @@
   [self.tableView endUpdates];
 }
 
-//-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-//  
-//  switch (type) {
-//    case NSFetchedResultsChangeInsert:
-//      <#statements#>
-//      break;
-//    case NSFetchedResultsChangeUpdate:
-//      break;
-//    case NSFetchedResultsChangeMove:
-//      break;
-//    case NSFetchedResultsChangeDelete:
-//      break;
-//    default:
-//      break;
-//  }
-//  
-//}
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+  
+  switch (type) {
+    case NSFetchedResultsChangeInsert:
+      [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+    case NSFetchedResultsChangeUpdate:
+      [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+      break;
+    case NSFetchedResultsChangeMove:
+      [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+    case NSFetchedResultsChangeDelete:
+       [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+    default:
+      break;
+  }
+  
+}
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-  
+  Reservation *reservation = [self.fetchedResultsController objectAtIndexPath:indexPath];
+  cell.textLabel.text = [NSString stringWithFormat:@" room: %@", reservation.room.number];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-  
-  return 0;
+  return [[self.fetchedResultsController sections] count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  
-  return 0;
+  NSArray *sections = [self.fetchedResultsController sections];
+  id<NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
+  return [sectionInfo numberOfObjects];
 }
 
-//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//  
-//  return cell;
-//}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RESERVATION_CELL" forIndexPath:indexPath];
+  [self configureCell:cell atIndexPath:indexPath];
+  return cell;
+}
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"ADD_RESERVATION"]) {
