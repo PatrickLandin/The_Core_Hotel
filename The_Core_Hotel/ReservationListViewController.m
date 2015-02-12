@@ -26,7 +26,7 @@
   NSManagedObjectContext *context = [[HotelService sharedService] coreDataStack].managedObjectContext;
   
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"room == @%", self.selectedRoom];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"room == %@", self.selectedRoom];
   NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:true];
   fetchRequest.predicate = predicate;
   fetchRequest.sortDescriptors = @[sortDescriptor];
