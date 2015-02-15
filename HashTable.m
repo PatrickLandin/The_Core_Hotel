@@ -9,10 +9,9 @@
 #import "HashTable.h"
 #import "Bucket.h"
 
-
 @interface HashTable ()
 @property (nonatomic) NSInteger size;
-@property (strong,nonatomic) NSMutableArray *hashArray;
+@property (strong,nonatomic) NSMutableArray *array;
 @end
 
 @implementation HashTable
@@ -21,20 +20,17 @@
   self = [super init];
   if (self) {
     self.size = size;
-    self.hashArray = [NSMutableArray new];
-    
+    self.array = [NSMutableArray new];
     for (int i = 0; i <self.size; i++) {
       Bucket *bucket = [Bucket new];
-      [self.hashArray addObject:bucket];
+      [self.array addObject:bucket];
     }
   }
   return self;
 }
 
-
 -(NSInteger)hash:(NSString *)key {
   NSInteger total = 0;
-  
   for (int i = 0; i < key.length; i++) {
     NSInteger ascii = [key characterAtIndex:i];
     total = total + ascii;
@@ -45,9 +41,7 @@
 
 -(id)objectForKey:(NSString*)key {
   NSInteger index = [self hash:key];
-  
-  Bucket *bucket = self.hashArray[index];
-  
+  Bucket *bucket = self.array[index];
   while (bucket) {
     if ([bucket.key isEqualToString:key]) {
       return bucket.data;
@@ -61,8 +55,7 @@
 -(void)removeObjectForKey:(NSString *)key {
   NSInteger index = [self hash:key];
   Bucket *previousBucket;
-  Bucket *bucket = self.hashArray[index];
-  
+  Bucket *bucket = self.array[index];
   while (bucket) {
     if ([key isEqualToString:bucket.key]) {
       if (!previousBucket) {
@@ -70,7 +63,7 @@
         if (!nextBucket) {
           nextBucket = [Bucket new];
         }
-        self.hashArray[index] = nextBucket;
+        self.array[index] = nextBucket;
       } else {
         previousBucket.next = bucket.next;
       }
@@ -87,14 +80,13 @@
   Bucket *bucket = [Bucket new];
   bucket.key = key;
   bucket.data = object;
-  
   [self removeObjectForKey:key];
-  Bucket *head = self.hashArray[index];
+  Bucket *head = self.array[index];
   if (!head.data) {
-    self.hashArray[index] = bucket;
+    self.array[index] = bucket;
   } else {
     bucket.next = head;
-    self.hashArray[index] = bucket;
+    self.array[index] = bucket;
   }
 }
 

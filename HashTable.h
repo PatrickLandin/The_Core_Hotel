@@ -11,11 +11,8 @@
 @interface HashTable : NSObject
 
 -(void)setObject:(id)object forKey:(NSString*)key;
-
 -(void)removeObjectForKey:(NSString *)key;
-
 -(id)objectForKey:(NSString*)key;
-
 -(instancetype)initWithSize:(NSInteger)size;
 
 
