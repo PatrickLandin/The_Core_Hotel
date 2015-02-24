@@ -9,6 +9,7 @@
 #import "AvailabilityViewController.h"
 #import "AppDelegate.h"
 #import "Reservation.h"
+#import "HotelService.h"
 
 @interface AvailabilityViewController ()
 
@@ -24,8 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-  self.context = appDelegate.managedObjectContext;
+//  AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+  self.context =   self.context = [[HotelService sharedService] coreDataStack].managedObjectContext;
   
     // Do any additional setup after loading the view.
 }
@@ -42,7 +43,7 @@
   fetchRequest.predicate = predicate;
   
   NSFetchRequest *reservationFetch = [NSFetchRequest fetchRequestWithEntityName:@"Reservation"];
-  NSPredicate *reservationPredicate = [NSPredicate predicateWithFormat:@"room.hotel.name MATCHES %@ AND startDate >= %@ OR endDate <= %@", selectedHotel, self.startDate.date, self.endDate.date];
+  NSPredicate *reservationPredicate = [NSPredicate predicateWithFormat:@"room.hotel.name MATCHES %@ AND startDate <= %@ AND endDate >= %@", selectedHotel, self.endDate.date, self.startDate.date];
   
   reservationFetch.predicate = reservationPredicate;
   NSError *fetchError;
